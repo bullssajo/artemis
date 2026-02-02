@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: artemis
+
+# Selenium Configuration
+selenium:
+  chrome:
+    driver-path: ${CHROME_DRIVER_PATH:}
+    remote-url: ${SELENIUM_REMOTE_URL:http://localhost:4444/wd/hub}
+    headless: true
+    timeout-seconds: 30
+    page-load-timeout-seconds: 60
+
+# LLM Configuration
+llm:
+  provider: ${LLM_PROVIDER:openai}  # openai, anthropic, ollama
+  api-key: ${LLM_API_KEY:}
+  model: ${LLM_MODEL:gpt-4o}
+  base-url: ${LLM_BASE_URL:https://api.openai.com/v1}
+  timeout-seconds: 120
+
+# Content Extraction Configuration
+extraction:
+  min-text-length: 50
+  max-content-length: 50000
+  screenshot:
+    enabled: true
+    width: 1920
+    height: 1080
+
+logging:
+  level:
+    com.artemis: DEBUG
+    org.seleniumhq: WARN
